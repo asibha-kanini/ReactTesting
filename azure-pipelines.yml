@@ -21,11 +21,11 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    npm install test
+    npm install --save-dev jest
     npm test
   displayName: 'npm test'
-  
+
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/build' # You can change the target path
-    publishLocation: 'pipeline'
+    targetPath: '$(Pipeline.Workspace)'
+    publishLocation: pipeline
